@@ -7,7 +7,7 @@ package ku.util;
  */
 public class Main {
 	public static void main(String[] args) {
-		String[] fruit = { "apple", null, null, "Banana" };
+		String[] fruit = { "Apple", null, null, "Banana" };
 		ArrayIterator<String> it = new ArrayIterator<String>(fruit);
 		System.out.println(it.hasNext());
 		System.out.println(it.next());

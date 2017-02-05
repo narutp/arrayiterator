@@ -31,7 +31,8 @@ public class ArrayIterator<T> implements Iterator<T> {
 	/**
 	 * Return true if the rest of the array element have non-null element
 	 * false if there not have non-null element anymore 
-	 * @return 
+	 * @return Return true if the rest of the array element have non-null element
+	 * false if there not have non-null element anymore 
 	 */
 	@Override
 	public boolean hasNext() {
