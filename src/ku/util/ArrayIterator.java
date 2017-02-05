@@ -16,6 +16,9 @@ public class ArrayIterator<T> implements Iterator<T> {
 	
 	/** a number position of the array */
 	private int index;
+	
+	/** a last number position of the array that been return */
+	private int lastReturnedIndex;
 
 	/**
 	 * A constructor that initialize a new array iterator
@@ -26,6 +29,7 @@ public class ArrayIterator<T> implements Iterator<T> {
 	public ArrayIterator(T[] array) {
 		this.array = array;
 		this.index = 0;
+		this.lastReturnedIndex = -1;
 	}
 
 	/**
@@ -60,10 +64,22 @@ public class ArrayIterator<T> implements Iterator<T> {
 			index++;
 		}
 		T temp = array[index];
+		lastReturnedIndex = index;
 		index++;
 		while (hasNext() && array[index] == null) {
 			index++;
 		}
 		return temp;
+	}
+	
+	/**
+	 * Remove the last return element to null but if it never been return before it will throw
+	 * IllegalStateException 
+	 */
+	public void remove() {
+		if (lastReturnedIndex == -1 || array[lastReturnedIndex] == null) {
+			throw new IllegalStateException();
+		}
+		array[lastReturnedIndex] = null;
 	}
 }
