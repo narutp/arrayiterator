@@ -56,6 +56,9 @@ public class ArrayIterator<T> implements Iterator<T> {
 		if (!hasNext()) {
 			throw new NoSuchElementException();
 		}
+		while (array[index] == null) {
+			index++;
+		}
 		T temp = array[index];
 		index++;
 		while (hasNext() && array[index] == null) {
